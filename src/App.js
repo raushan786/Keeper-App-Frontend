@@ -4,14 +4,14 @@ import Addkeeper from './components/addkeeper/addkeeper';
 import ShowKeeper from './components/showkeeper/showkeeper';
 import { useState, useEffect } from "react"
 import axios from 'axios'
-
+import baseUrl from './baseUrl';
 
 function App() {
 
 const [ keeperList, setKeeperList ] = useState([])
 
 useEffect(() =>{
-  axios.get("http://localhost:3001/api/getAll")
+  axios.get(`${baseUrl}/api/getAll`)
   .then(res => setKeeperList(res.data))
 }, [])
 

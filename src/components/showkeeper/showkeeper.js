@@ -1,11 +1,12 @@
 import React from "react"
 import "./showkeeper.css"
 import axios from "axios"
+import baseUrl from "../../baseUrl"
 
 const ShowKeeper = ({keeperList, setKeeperList}) => {
 
 const deleteKeeper = (id) => {
-    axios.post("http://localhost:3001/api/delete", {id})
+    axios.post(`${baseUrl}/api/delete`, {id})
     .then(res => setKeeperList(res.data))
 }
 

@@ -2,6 +2,7 @@ import React from "react"
 import { useState } from "react"
 import "./addkeeper.css"
 import axios from "axios"
+import baseUrl from "../../baseUrl"
 
 const Addkeeper = ({setKeeperList}) => {
 
@@ -19,7 +20,7 @@ const Addkeeper = ({setKeeperList}) => {
     }
     const add = () => {
         if(keeperObj.title){
-            axios.post("http://localhost:3001/api/addNew", keeperObj)
+            axios.post(`${baseUrl}/api/addNew`, keeperObj)
             .then(res => setKeeperList(res.data))
             setKeeperObj({
                 title: "",
